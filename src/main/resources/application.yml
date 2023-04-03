@@ -1,0 +1,23 @@
+server:
+  port: 8443
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    hikari:
+      maxLifetime: 900000
+      keepaliveTime: 270000
+      connection-init-sql: select 1 from person for update limit 1;
+      schema: foo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health
+      base-path: /
+  endpoint:
+    health:
+      show-details: always

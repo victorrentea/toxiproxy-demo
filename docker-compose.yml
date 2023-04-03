@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+   postgres:
+        image: postgres@sha256:2b87b5bb55589540f598df6ec5855e5c15dd13628230a689d46492c1d433c4df
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_PASSWORD: password
+            POSTGRES_USER: postgres
+        volumes:
+        - ./config/db/init.sql:/docker-entrypoint-initdb.d/init.sql
