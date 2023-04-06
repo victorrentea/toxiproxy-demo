@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS foo.person;
+
+
+DROP SCHEMA IF EXISTS foo;
+
+CREATE SCHEMA foo;
+
+CREATE TABLE foo.person
+(
+	id UUID NOT NULL
+		CONSTRAINT source_pk
+			PRIMARY KEY,
+    name VARCHAR(240)
+);
